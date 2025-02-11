@@ -13,10 +13,9 @@ env:
 jobs:
   build-production:
     name: Build and push docker image
-    needs: checks
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
 
     steps:
       - name: Checkout code
@@ -25,8 +24,8 @@ jobs:
       - name: Build Docker image
         run: |
           COMMIT_HASH=${{ github.sha }}
-          docker build -f Dockerfile.hub -t chatbot/website:$COMMIT_HASH .
-          docker tag chatbot/webiste:$COMMIT_HASH chatbot.cr.de-fra.ionos.com/chatbot/website:$COMMIT_HASH
+          docker build -f Dockerfile -t chatbot/website:$COMMIT_HASH .
+          docker tag chatbot/website:$COMMIT_HASH chatbot.cr.de-fra.ionos.com/chatbot/website:$COMMIT_HASH
 
       - name: Push Docker image to IONOS registry
         run: |
@@ -38,7 +37,7 @@ jobs:
     name: Rollout production 
     environment: Production 
     timeout-minutes: 5
-    needs: build-staging
+    needs: build-production
     runs-on: ubuntu-latest
 
     steps:
