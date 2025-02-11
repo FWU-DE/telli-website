@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Barlow } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/footer";
 
 const barlowFont = Barlow({
   weight: ["400", "500", "600", "900", "700"],
@@ -26,6 +27,7 @@ export default function RootLayout({
         className={`${barlowFont.variable} ${barlowFont.className} antialiased`}
       >
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Accordion from "@/components/accordeon";
 import Carousell from "@/components/carousell";
-import Footer from "@/components/footer";
 import ImageCard from "@/components/image_card";
 import LoginButton from "@/components/login-button";
 import TopBar from "@/components/topbar";
@@ -87,17 +86,17 @@ export default function App() {
           >
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto py-6 px-4 sm:px-8">
               <ImageCard
-                src="/person 1.jpg"
+                src="/person%201.jpg"
                 title="Unterricht vorbereiten mit KI"
                 text="Mit telli können Lehrkräfte den Unterricht komfortabel und effizient vorbereiten. Ob Arbeitsblätter, Quizfragen oder Erklärtexte - telli hilft dabei, Inhalte schnell und rechtssicher zu erstellen."
               />
               <ImageCard
-                src="/preson 2.jpg"
+                src="/preson%202.jpg"
                 title="Datenschutzkonforme Nutzung"
                 text="Die Anwendung wird speziell für deutsche Schulen entwickelt und entspricht höchsten Datenschutzstandards, sodass telli von Lehrenden und Lernenden sorgenfrei genutzt werden kann."
               />
               <ImageCard
-                src="/person 3.jpg"
+                src="/person%203.jpg"
                 title="KI im Klassenzimmer einsetzen"
                 text="Schülerinnen und Schüler können über sogenannte Klassendialoge - das sind von der Lehrkraft erstellte und geteilte Links - mit der KI Aufgaben lösen und gemeinsam an Projekten arbeiten."
               />
@@ -196,9 +195,11 @@ export default function App() {
                 </p>
               </div>
               <div className="flex flex-col justify-center items-center">
-                <img
+                <Image
                   src="/telli-laptop-mockup.png"
                   className="w-fit"
+                  width={500}
+                  height={250}
                   alt="Telli app on a laptop"
                 />
               </div>
@@ -225,7 +226,6 @@ export default function App() {
             <em>Aufgrund eines Beschlusses des Deutschen Bundestages</em>
           </section>
         </main>
-        <Footer />
       </div>
     </>
   );

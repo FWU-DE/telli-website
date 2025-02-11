@@ -1,47 +1,28 @@
-import { useEffect, useRef } from "react";
+"use client";
+import Image from "next/image";
+import Marquee from "react-fast-marquee";
 
 const images = Array.from(
   { length: 16 },
-  (_, i) => `/Wappen/land_${i + 1}.png`,
+  (_, i) => `/Wappen/land_${i + 1}.png`
 );
 
-export default function Carousell() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const scroll = () => {
-      if (scrollRef.current) {
-        const width = scrollRef.current.getBoundingClientRect().width;
-
-        scrollRef.current.scrollLeft += width < 600 ? 30 : 7;
-        if (scrollRef.current.scrollLeft >= scrollRef.current.scrollWidth / 2) {
-          scrollRef.current.scrollLeft = 0;
-        }
-      }
-    };
-
-    const interval = setInterval(scroll, 30);
-    return () => clearInterval(interval);
-  }, []);
-
+export default function Carousel() {
   return (
     <div className="relative w-full overflow-hidden">
-      <div
-        ref={scrollRef}
-        className="flex gap-24 overflow-x-scroll whitespace-nowrap no-scrollbar"
-        style={{ scrollBehavior: "smooth" }}
-      >
-        {images.concat(images).map((src, i) => (
-          <img
-            key={i}
-            src={src}
-            alt={`Land ${(i % 16) + 1}`}
-            className="h-12 w-auto object-cover"
-          />
+      <Marquee gradient={true} autoFill={true} speed={50}>
+        {images.map((src, i) => (
+          <span key={i} className="mx-4 inline-block">
+            <Image
+              src={src}
+              alt={`Land ${i + 1}`}
+              width={48}
+              height={48}
+              className="h-14 w-auto object-cover select-none pointer-events-none"
+            />
+          </span>
         ))}
-      </div>
-      <div className="absolute top-0 left-0 h-full w-16 pointer-events-none bg-linear-to-r from-white via-white/50 to-transparent" />
-      <div className="absolute top-0 right-0 h-full w-16 pointer-events-none bg-linear-to-l from-white via-white/50 to-transparent" />
+      </Marquee>
     </div>
   );
 }

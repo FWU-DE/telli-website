@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function Impressum() {
   return (
-    <div className="min-h-screen">
-      <div className="px-4 py-6">
+    <div className="">
+      <div className="px-4 py-6 ">
         <Link
           href="/"
           className="text-purple-600 hover:text-purple-800 flex items-center gap-2 mb-16"
@@ -11,7 +11,7 @@ export default function Impressum() {
           ← Zur Startseite
         </Link>
 
-        <div className="max-w-[800px]">
+        <div className="max-w-[800px] flex justify-center items-center flex-col">
           <h1 className="text-2xl font-bold mb-8">Impressum</h1>
 
           <div className="space-y-6">
