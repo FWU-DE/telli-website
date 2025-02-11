@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Accordion from "@/components/accordeon";
 import Carousell from "@/components/carousell";
 import Footer from "@/components/footer";
@@ -68,9 +69,11 @@ export default function App() {
                 verfügbar ist, werden Sie über die Schulleitung informiert.
               </p>
             </div>
-            <img
-              src="./telli-chat.png"
+            <Image
+              src="/telli-chat.png"
               alt="Telli Chat Preview"
+              width={600}
+              height={400}
               className="w-full"
             />
           </section>
@@ -155,16 +158,18 @@ export default function App() {
               </div>
             </div>
             <div id="faq" className="flex items-start gap-8">
-              <div className="p-6 w-xl min-h-96 flex-shrink-0">
+              <div className="p-6 w-xl min-h-96 shrink-0">
                 <h1 className="text-4xl font-bold mb-8">
                   Häufig gestellte Fragen
                 </h1>
                 <Accordion items={faqItems} />
               </div>
-              <img
+              <Image
                 src="/ais-telli-mockup-visual.jpeg"
+                alt="AIS telli mockup visual"
                 width={400}
-                className="rounded-2xl object-contain aspect-[3/4] flex-shrink-0"
+                height={533}
+                className="rounded-2xl object-contain aspect-3/4 shrink-0"
               />
             </div>
             <Carousell />
@@ -176,7 +181,13 @@ export default function App() {
                 Bundesländer und handelt in deren Auftrag.
               </p>
               <em>Gefördert durch: </em>
-              <img src="/supported_by.png" className="w-40" />
+              <Image
+                src="/supported_by.png"
+                alt="Supported by"
+                width={160}
+                height={80}
+                className="w-40"
+              />
               <em>Aufgrund eines Beschlusses des Deutschen Bundestages</em>
             </section>
           </div>

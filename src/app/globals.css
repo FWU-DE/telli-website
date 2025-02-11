@@ -2,37 +2,58 @@
 @import "tailwindcss";
 
 @theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+@theme {
   --color-light-blue: #f0fdfb;
   --color-telli-purple: rgba(70, 33, 126, 1);
   --font-barlow: "Barlow", sans-serif;
 }
 
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
 @layer base {
-  .body {
-    @apply font-barlow;
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
   }
 }
 
-@layer components {
-  .button_topbar {
-    @apply relative text-purple-900 select-none cursor-pointer;
-    @variant after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: -3px;
-      width: 0;
-      height: 2px;
-      background-color: currentColor;
-      transition: width 0.3s ease, left 0.3s ease;
-    }
+@utility button_topbar {
+  @apply relative text-purple-900 select-none cursor-pointer font-barlow font-bold;
+  @variant after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: currentColor;
+    transition: width 0.3s ease, left 0.3s ease;
+  }
 
-    @variant hover {
-      @variant after {
-        width: 100%;
-        left: 0;
-      }
+  @variant hover {
+    @variant after {
+      width: 100%;
+      left: 0;
     }
+  }
+}
+
+@layer base {
+  .body {
+    @apply font-barlow;
   }
 }
 

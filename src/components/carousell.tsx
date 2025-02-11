@@ -38,8 +38,8 @@ export default function Carousell() {
           />
         ))}
       </div>
-      <div className="absolute top-0 left-0 h-full w-16 pointer-events-none bg-gradient-to-r from-white via-white/50 to-transparent" />
-      <div className="absolute top-0 right-0 h-full w-16 pointer-events-none bg-gradient-to-l from-white via-white/50 to-transparent" />
+      <div className="absolute top-0 left-0 h-full w-16 pointer-events-none bg-linear-to-r from-white via-white/50 to-transparent" />
+      <div className="absolute top-0 right-0 h-full w-16 pointer-events-none bg-linear-to-l from-white via-white/50 to-transparent" />
     </div>
   );
 }
