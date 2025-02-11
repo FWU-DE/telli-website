@@ -8,18 +8,11 @@
 
 @theme {
   --color-light-blue: #f0fdfb;
+  --color-telli-blue: rgba(2,165,155,1);
   --color-telli-purple: rgba(70, 33, 126, 1);
   --font-barlow: "Barlow", sans-serif;
 }
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
   *,
   ::after,
@@ -30,7 +23,7 @@
   }
 }
 
-@utility button_topbar {
+@utility btn-header {
   @apply relative text-purple-900 select-none cursor-pointer font-barlow font-bold;
   @variant after {
     content: "";
@@ -40,6 +33,27 @@
     width: 0;
     height: 2px;
     background-color: currentColor;
+    transition: width 0.3s ease, left 0.3s ease;
+  }
+
+  @variant hover {
+    @variant after {
+      width: 100%;
+      left: 0;
+    }
+  }
+}
+
+@utility btn-bottom {
+  @apply relative text-white select-none cursor-pointer font-barlow font-bold;
+  @variant after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: "rgba(2,165,155,1)";
     transition: width 0.3s ease, left 0.3s ease;
   }
 

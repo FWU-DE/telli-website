@@ -1,3 +1,6 @@
+import { cn } from "@/utils/tailwind/cn";
+import { h2ClassName, paragraphClassName } from "@/utils/tailwind/fonts";
+
 export default function ImageCard({
   src,
   imgWidth = 400,
@@ -17,8 +20,8 @@ export default function ImageCard({
         alt={title}
         className="w-full h-64 object-cover rounded-lg"
       />
-      <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
-      <p className="text-gray-600 leading-relaxed">{text}</p>
+      <h2 className={h2ClassName}>{title}</h2>
+      <p className={cn(paragraphClassName)}>{text}</p>
     </div>
   );
 }

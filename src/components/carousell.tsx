@@ -4,7 +4,7 @@ import Marquee from "react-fast-marquee";
 
 const images = Array.from(
   { length: 16 },
-  (_, i) => `/Wappen/land_${i + 1}.png`
+  (_, i) => `/Wappen/land_${i + 1}.png`,
 );
 
 export default function Carousel() {
@@ -12,7 +12,7 @@ export default function Carousel() {
     <div className="relative w-full overflow-hidden">
       <Marquee gradient={true} autoFill={true} speed={50}>
         {images.map((src, i) => (
-          <span key={i} className="mx-4 inline-block">
+          <span key={i} className="mx-8 inline-block">
             <Image
               src={src}
               alt={`Land ${i + 1}`}

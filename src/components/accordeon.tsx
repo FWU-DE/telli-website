@@ -3,6 +3,8 @@
 import { useState } from "react";
 import MinusIcon from "../icons/minus";
 import PlusIcon from "../icons/plus";
+import { paragraphClassName } from "@/utils/tailwind/fonts";
+import { cn } from "@/utils/tailwind/cn";
 
 type AccordionItem = {
   id: string | number;
@@ -45,7 +47,7 @@ export default function Accordion({ items, defaultOpen }: AccordionProps) {
               openId === item.id ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
             }`}
           >
-            <p className="text-gray-600 py-4">{item.content}</p>
+            <p className={cn(paragraphClassName, "pb-4")}>{item.content}</p>
           </div>
         </div>
       ))}

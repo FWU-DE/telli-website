@@ -1,25 +1,34 @@
+"use client";
 import { useState } from "react";
 import LoginButton from "./login-button";
 import MenuIcon from "../icons/menu";
 import CloseIcon from "../icons/close";
 import { handleScroll } from "../utils/scroll";
 import Link from "next/link";
+import TelliIcon from "@/icons/telli";
+import { cn } from "@/utils/tailwind/cn";
+import { contentMaxWidthClassName } from "@/utils/tailwind/fonts";
 
 export default function TopBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 bg-white py-3">
-      <div className="container mx-auto flex items-center justify-between px-4 h-16">
-        <div className="flex items-center">
-          <img src="/telli_logo.svg" alt="Telli Logo" className="h-8" />
+      <div
+        className={cn(
+          "flex items-center justify-between h-16",
+          contentMaxWidthClassName,
+        )}
+      >
+        <div className="flex items-center gap-2 text-telli-purple">
+          <TelliIcon className="text-telli-purple h-10 w-10" />
+          <span className="text-4xl font-bold">telli</span>
         </div>
-
         <nav className="hidden md:flex justify-center flex-1">
           <ul className="flex items-center gap-6">
             <li>
               <Link
-                className="button_topbar font-medium text-gray-700 hover:text-[#4B2E83]"
+                className="btn-header font-medium text-gray-700 hover:text-[#4B2E83]"
                 href="#"
               >
                 Startseite
@@ -27,7 +36,7 @@ export default function TopBar() {
             </li>
             <li>
               <Link
-                className="button_topbar font-medium text-gray-700 hover:text-[#4B2E83] whitespace-nowrap"
+                className="btn-header font-medium text-gray-700 hover:text-[#4B2E83] whitespace-nowrap"
                 href="#teacher"
               >
                 Für Lehrkräfte
@@ -35,7 +44,7 @@ export default function TopBar() {
             </li>
             <li>
               <Link
-                className="button_topbar font-medium text-gray-700 hover:text-[#4B2E83]"
+                className="btn-header font-medium text-gray-700 hover:text-[#4B2E83]"
                 href="#faq"
               >
                 FAQ
@@ -44,16 +53,16 @@ export default function TopBar() {
           </ul>
         </nav>
 
-        <div className="md:hidden flex items-center ml-auto">
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-gray-700"
-          >
-            {isMenuOpen ? <MenuIcon /> : <CloseIcon />}
-          </button>
-        </div>
+        {/* <div className="md:hidden flex items-center ml-auto"> */}
+        {/*   <button */}
+        {/*     onClick={() => setIsMenuOpen(!isMenuOpen)} */}
+        {/*     className="text-gray-700" */}
+        {/*   > */}
+        {/*     {isMenuOpen ? <MenuIcon /> : <CloseIcon />} */}
+        {/*   </button> */}
+        {/* </div> */}
 
-        <div className="hidden md:flex justify-end">
+        <div className="justify-end">
           <LoginButton />
         </div>
       </div>

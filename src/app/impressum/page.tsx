@@ -1,4 +1,6 @@
 import LegalNavbar from "@/components/legal-navbar";
+import { cn } from "@/utils/tailwind/cn";
+import { h1ClassName } from "@/utils/tailwind/fonts";
 import Link from "next/link";
 
 export default function Impressum() {
@@ -6,7 +8,7 @@ export default function Impressum() {
     <div className="max-w-3xl mx-auto p-6">
       <LegalNavbar />
       <div className="flex justify-center flex-col mt-12">
-        <h1 className="text-2xl font-bold mb-8">Impressum</h1>
+        <h1 className={cn(h1ClassName, "mb-6")}>Impressum</h1>
         <div className="space-y-6">
           <div>
             <p className="font-bold">FWU Institut für Film und Bild</p>
@@ -26,7 +28,7 @@ export default function Impressum() {
               <span className="font-bold">Internet:</span>{" "}
               <Link
                 href="http://www.fwu.de"
-                className="text-purple-600 hover:text-purple-800"
+                className="text-telli-blue underline"
               >
                 www.fwu.de
               </Link>
@@ -35,14 +37,14 @@ export default function Impressum() {
               <span className="font-bold">E-Mail:</span>{" "}
               <Link
                 href="mailto:info@fwu.de"
-                className="text-purple-600 hover:text-purple-800"
+                className="text-telli-blue underline"
               >
                 info@fwu.de
               </Link>
             </p>
           </div>
 
-          <p>Nachfolgend mit „FWU&quot; oder „Telli&quot; abgekürzt</p>
+          <p>Nachfolgend mit „FWU&quot; oder „telli&quot; abgekürzt</p>
 
           <div className="space-y-1">
             <p>
