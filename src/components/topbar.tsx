@@ -3,6 +3,7 @@ import LoginButton from "./login-button";
 import MenuIcon from "../icons/menu";
 import CloseIcon from "../icons/close";
 import { handleScroll } from "../utils/scroll";
+import Link from "next/link";
 
 export default function TopBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,28 +18,28 @@ export default function TopBar() {
         <nav className="hidden md:flex justify-center flex-1">
           <ul className="flex items-center gap-6">
             <li>
-              <button
+              <Link
                 className="button_topbar font-medium text-gray-700 hover:text-[#4B2E83]"
-                onClick={() => handleScroll("startseite")}
+                href="#"
               >
                 Startseite
-              </button>
+              </Link>
             </li>
             <li>
-              <button
+              <Link
                 className="button_topbar font-medium text-gray-700 hover:text-[#4B2E83] whitespace-nowrap"
-                onClick={() => handleScroll("what_special")}
+                href="#teacher"
               >
                 Für Lehrkräfte
-              </button>
+              </Link>
             </li>
             <li>
-              <button
+              <Link
                 className="button_topbar font-medium text-gray-700 hover:text-[#4B2E83]"
-                onClick={() => handleScroll("faq")}
+                href="#faq"
               >
                 FAQ
-              </button>
+              </Link>
             </li>
           </ul>
         </nav>

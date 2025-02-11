@@ -11,6 +11,7 @@ import CheckMarkIcon from "@/icons/checkmark";
 import RulerIcon from "@/icons/ruler";
 import ShieldIcon from "@/icons/shield";
 import { handleScroll } from "@/utils/scroll";
+import Link from "next/link";
 
 export default function App() {
   const faqItems = [
@@ -59,12 +60,12 @@ export default function App() {
               </p>
               <div className="flex gap-4">
                 <LoginButton />
-                <button
-                  onClick={() => handleScroll("people_cards")}
+                <Link
+                  href="#people-cards"
                   className="inline-flex items-center justify-center rounded-full border border-telli-purple text-telli-purple bg-white px-8 py-3 text-lg transition-colors hover:bg-gray-50"
                 >
                   Mehr erfahren
-                </button>
+                </Link>
               </div>
               <p className="text-sm text-gray-500">
                 telli steht aktuell nur ausgewählten Nutzerinnen und Nutzern zu
@@ -81,8 +82,8 @@ export default function App() {
             />
           </section>
           <div
-            className="bg-light-blue w-full overflow-x-auto"
-            id="people_cards"
+            className="bg-light-blue w-full overflow-x-auto scroll-mt-20"
+            id="people-cards"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto py-6 px-4 sm:px-8">
               <ImageCard
@@ -102,11 +103,11 @@ export default function App() {
               />
             </div>
           </div>
-          <section className="py-16 text-center flex flex-col items-center justify-center px-4 sm:px-8 mx-auto gap-4">
-            <h2
-              id="what_special"
-              className="mb-6 text-3xl sm:text-5xl font-bold text-gray-900"
-            >
+          <section
+            id="teacher"
+            className="py-16 text-center flex flex-col items-center justify-center px-4 sm:px-8 mx-auto gap-4 scroll-mt-20"
+          >
+            <h2 className="mb-6 text-3xl sm:text-5xl font-bold text-gray-900">
               Was macht telli besonders?
             </h2>
             <p className="max-w-3xl text-lg">
@@ -164,7 +165,7 @@ export default function App() {
             </div>
             <div
               id="faq"
-              className="grid grid-cols-1 lg:grid-cols-2 gap-8 py-16"
+              className="grid grid-cols-1 lg:grid-cols-2 gap-8 py-16 scroll-mt-20"
             >
               <div className="p-4 sm:px-8">
                 <h1 className="text-4xl font-bold mb-8">
@@ -215,7 +216,7 @@ export default function App() {
               Unterricht gGmbH. Das FWU ist das Medieninstitut der 16
               Bundesländer und handelt in deren Auftrag.
             </p>
-            <em>Gefördert durch: </em>
+            <em>Gefördert durch:</em>
             <Image
               src="/supported_by.png"
               alt="Supported by"
@@ -223,7 +224,9 @@ export default function App() {
               height={80}
               className="w-40"
             />
-            <em>Aufgrund eines Beschlusses des Deutschen Bundestages</em>
+            <em className="text-center">
+              Aufgrund eines Beschlusses des Deutschen Bundestages
+            </em>
           </section>
         </main>
       </div>

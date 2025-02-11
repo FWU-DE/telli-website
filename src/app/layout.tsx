@@ -24,9 +24,10 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" sizes="any" />
       </head>
       <body
-        className={`${barlowFont.variable} ${barlowFont.className} antialiased`}
+        className={`${barlowFont.variable} ${barlowFont.className} antialiased flex flex-col min-h-[100dvh]`}
       >
         {children}
+        <div className="flex-grow" />
         <Footer />
       </body>
     </html>
