@@ -8,8 +8,8 @@ export default function TopBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white py-5">
-      <div className="container mx-auto flex items-center justify-between px-4 h-20">
+    <header className="sticky top-0 z-50 bg-white py-3">
+      <div className="container mx-auto flex items-center justify-between px-4 h-16">
         <div className="flex items-center">
           <img src="/telli_logo.svg" alt="Telli Logo" className="h-8" />
         </div>

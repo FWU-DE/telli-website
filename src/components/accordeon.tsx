@@ -20,14 +20,14 @@ export default function Accordion({ items, defaultOpen }: AccordionProps) {
     defaultOpen || null,
   );
   return (
-    <div className="w-full max-w-3xl mx-auto">
+    <div className="w-full">
       {items.map((item) => (
-        <div key={item.id} className="border-b border-gray-200">
+        <div key={item.id} className="border-b border-gray-200 w-full">
           <button
             onClick={() => setOpenId(openId === item.id ? null : item.id)}
-            className="flex justify-between items-center w-full py-6 text-left transition-colors cursor-pointer"
+            className="flex justify-between items-center py-6 w-full text-left transition-colors cursor-pointer"
           >
-            <h3 className="text-xl font-medium">{item.title}</h3>
+            <h3 className="text-xl font-medium break-words">{item.title}</h3>
             <span
               className={`text-2xl leading-none ml-4 transform transition-transform duration-300 ${
                 openId === item.id ? "rotate-180" : "rotate-0"
@@ -42,7 +42,7 @@ export default function Accordion({ items, defaultOpen }: AccordionProps) {
           </button>
           <div
             className={`overflow-hidden transition-all duration-300 ${
-              openId === item.id ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+              openId === item.id ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
             }`}
           >
             <p className="text-gray-600 py-4">{item.content}</p>

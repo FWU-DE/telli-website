@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 const images = Array.from(
   { length: 16 },
-  (_, i) => `/Wappen/land_${i + 1}.png`
+  (_, i) => `/Wappen/land_${i + 1}.png`,
 );
 
 export default function Carousell() {
@@ -11,7 +11,9 @@ export default function Carousell() {
   useEffect(() => {
     const scroll = () => {
       if (scrollRef.current) {
-        scrollRef.current.scrollLeft += 1;
+        const width = scrollRef.current.getBoundingClientRect().width;
+
+        scrollRef.current.scrollLeft += width < 600 ? 30 : 7;
         if (scrollRef.current.scrollLeft >= scrollRef.current.scrollWidth / 2) {
           scrollRef.current.scrollLeft = 0;
         }
@@ -26,7 +28,7 @@ export default function Carousell() {
     <div className="relative w-full overflow-hidden">
       <div
         ref={scrollRef}
-        className="flex gap-4 overflow-x-scroll whitespace-nowrap no-scrollbar"
+        className="flex gap-24 overflow-x-scroll whitespace-nowrap no-scrollbar"
         style={{ scrollBehavior: "smooth" }}
       >
         {images.concat(images).map((src, i) => (
@@ -34,7 +36,7 @@ export default function Carousell() {
             key={i}
             src={src}
             alt={`Land ${(i % 16) + 1}`}
-            className="h-14 w-auto object-cover"
+            className="h-12 w-auto object-cover"
           />
         ))}
       </div>
