@@ -1,0 +1,65 @@
+name: Deploy telli website 
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  IONOS_DOCKER_REGISTRY_TOKEN: ${{ secrets.IONOS_DOCKER_REGISTRY_TOKEN }}
+
+jobs:
+  build-production:
+    name: Build and push docker image
+    needs: checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    if: github.ref == 'refs/heads/master'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: |
+          COMMIT_HASH=${{ github.sha }}
+          docker build -f Dockerfile.hub -t chatbot/website:$COMMIT_HASH .
+          docker tag chatbot/webiste:$COMMIT_HASH chatbot.cr.de-fra.ionos.com/chatbot/website:$COMMIT_HASH
+
+      - name: Push Docker image to IONOS registry
+        run: |
+          echo "${{ secrets.IONOS_DOCKER_REGISTRY_TOKEN }}" | docker login --username all --password-stdin chatbot.cr.de-fra.ionos.com
+          COMMIT_HASH=${{ github.sha }}
+          docker push chatbot.cr.de-fra.ionos.com/chatbot/website:$COMMIT_HASH
+
+  deploy-production:
+    name: Rollout production 
+    environment: Production 
+    timeout-minutes: 5
+    needs: build-staging
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set Kubernetes context
+        uses: azure/k8s-set-context@v4
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.KUBECONFIG_FILE }}
+          context: ''
+
+      - name: Update Kubernetes deployment
+        run: |
+          COMMIT_HASH=${{ github.sha }}
+          echo "Updating Kubernetes deployment with image tag $COMMIT_HASH"
+          kubectl set image deployment/chatbot-website \
+            chatbot-website=chatbot.cr.de-fra.ionos.com/chatbot/website:$COMMIT_HASH \
+
+      - name: Wait for rollout to complete
+        run: |
+          echo "Waiting for rollout to complete"
+          kubectl rollout status deployment/chatbot-webite
