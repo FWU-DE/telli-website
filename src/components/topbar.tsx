@@ -26,7 +26,7 @@ export default function TopBar() {
             </li>
             <li>
               <button
-                className="button_topbar font-medium text-gray-700 hover:text-[#4B2E83]"
+                className="button_topbar font-medium text-gray-700 hover:text-[#4B2E83] whitespace-nowrap"
                 onClick={() => handleScroll("what_special")}
               >
                 Für Lehrkräfte
