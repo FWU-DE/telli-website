@@ -1,8 +1,6 @@
 "use client";
 import { useState } from "react";
 import LoginButton from "./login-button";
-import MenuIcon from "../icons/menu";
-import CloseIcon from "../icons/close";
 import { handleScroll } from "../utils/scroll";
 import Link from "next/link";
 import TelliIcon from "@/icons/telli";
@@ -10,7 +8,7 @@ import { cn } from "@/utils/tailwind/cn";
 import { contentMaxWidthClassName } from "@/utils/tailwind/fonts";
 
 export default function TopBar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 bg-white py-3">
