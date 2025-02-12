@@ -1,12 +1,13 @@
 import LegalNavbar from "@/components/legal-navbar";
 import { TELLI_WEBSITE_URL } from "@/utils/const";
+import { h1ClassName, h2ClassName } from "@/utils/tailwind/fonts";
 import Link from "next/link";
 
 export default function Page() {
   return (
     <div className="max-w-3xl mx-auto p-6">
       <LegalNavbar />
-      <h1 className="text-3xl font-bold my-4">Datenschutzerklärung</h1>
+      <h1 className={h1ClassName}>Datenschutzerklärung</h1>
       <em className="text-sm mb-8">Stand: 10. Februar 2025</em>
       <section className="my-4 space-y-4">
         <h2 className="text-2xl font-semibold mb-4">1. Datenschutz</h2>
@@ -439,7 +440,7 @@ export default function Page() {
         </p>
       </section>
       <section className="my-4 mt-12 space-y-4">
-        <h2 className="text-2xl sm:text-5xl font-bold">Urheberrecht</h2>
+        <h2 className={h2ClassName}>Urheberrecht</h2>
         <p>
           © FWU Institut für Film und Bild in Wissenschaft und Unterricht
           gemeinnützige GmbH– alle Rechte vorbehalten.
@@ -467,7 +468,7 @@ export default function Page() {
         </p>
       </section>
       <section className="my-4 mt-12 space-y-4">
-        <h2 className="text-2xl sm:text-5xl font-bold">Haftungsausschluss</h2>
+        <h2 className={h2ClassName}>Haftungsausschluss</h2>
         <p>
           telli hat alle in seinem Bereich bereitgestellten Informationen nach
           bestem Wissen und Gewissen erarbeitet und geprüft. Es wird jedoch
