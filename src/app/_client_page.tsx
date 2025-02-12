@@ -25,7 +25,7 @@ export default function App() {
       <main className="">
         <section
           className={cn(
-            "grid grid-cols-1 lg:grid-cols-2 items-center gap-8 py-8 pt-4",
+            "grid grid-cols-1 lg:grid-cols-2 items-center gap-8 py-8 pt-4 lg:pb-16",
             contentMaxWidthClassName,
           )}
         >
@@ -59,7 +59,7 @@ export default function App() {
             </p>
           </div>
           <div className="flex flex-col items-center justify-center h-full w-full">
-            <img src="/telli-chat.png" alt="Telli Chat Preview" />
+            <img src="/lg.png" alt="Telli Chat Preview" />
           </div>
         </section>
         <div
@@ -68,22 +68,22 @@ export default function App() {
         >
           <div
             className={cn(
-              "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-16",
+              "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-16 lg:py-32",
               contentMaxWidthClassName,
             )}
           >
             <ImageCard
-              src="/person%201.jpg"
+              src="/person1.jpg"
               title="Unterricht vorbereiten mit KI"
               text="Mit telli können Lehrkräfte den Unterricht komfortabel und effizient vorbereiten. Ob Arbeitsblätter, Quizfragen oder Erklärtexte - telli hilft dabei, Inhalte schnell und rechtssicher zu erstellen."
             />
             <ImageCard
-              src="/preson%202.jpg"
+              src="/person2.jpg"
               title="Datenschutzkonforme Nutzung"
               text="Die Anwendung wird speziell für deutsche Schulen entwickelt und entspricht höchsten Datenschutzstandards, sodass telli von Lehrenden und Lernenden sorgenfrei genutzt werden kann."
             />
             <ImageCard
-              src="/person%203.jpg"
+              src="/person3.jpg"
               title="KI im Klassenzimmer einsetzen"
               text="Schülerinnen und Schüler können über sogenannte Klassendialoge - das sind von der Lehrkraft erstellte und geteilte Links - mit der KI Aufgaben lösen und gemeinsam an Projekten arbeiten."
             />
@@ -92,7 +92,7 @@ export default function App() {
         <section
           id="teacher"
           className={cn(
-            "py-16 text-center flex flex-col items-center justify-center gap-4 scroll-mt-20",
+            "py-16 lg:py-24 text-center flex flex-col items-center justify-center gap-4 scroll-mt-20",
             contentMaxWidthClassName,
             "max-w-3xl",
           )}
@@ -156,7 +156,7 @@ export default function App() {
             </div>
           </div>
         </div>
-        <section className="bg-light-blue w-full overflow-x-auto py-16">
+        <section className="bg-light-blue w-full overflow-x-auto py-16 lg:py-24">
           <div
             className={cn(
               "grid grid-cols-1 md:grid-cols-2 gap-12",
@@ -183,13 +183,13 @@ export default function App() {
             </div>
           </div>
         </section>
-        <section className={cn(contentMaxWidthClassName, "py-16")}>
+        <section className={cn(contentMaxWidthClassName, "py-16 lg:py-24")}>
           <Carousell />
         </section>
         <section
           className={cn(
             contentMaxWidthClassName,
-            "flex flex-col items-center gap-6 mb-16 max-w-4xl",
+            "flex flex-col items-center gap-6 mb-16 lg:mb-24 max-w-4xl",
           )}
         >
           <p className={cn(paragraphClassName, "text-center")}>
