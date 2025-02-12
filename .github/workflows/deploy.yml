@@ -29,7 +29,7 @@ jobs:
 
       - name: Push Docker image to IONOS registry
         run: |
-          echo "${{ secrets.IONOS_DOCKER_REGISTRY_TOKEN }}" | docker login --username all --password-stdin chatbot.cr.de-fra.ionos.com
+          echo "${{ secrets.IONOS_DOCKER_REGISTRY_TOKEN }}" | docker login --username telli-website --password-stdin chatbot.cr.de-fra.ionos.com
           COMMIT_HASH=${{ github.sha }}
           docker push chatbot.cr.de-fra.ionos.com/chatbot/website:$COMMIT_HASH
 
