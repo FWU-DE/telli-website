@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  IONOS_DOCKER_REGISTRY_TOKEN: ${{ secrets.IONOS_DOCKER_REGISTRY_TOKEN }}
+  IONOS_REGISTRY_TOKEN_GITHUB_PUSH: ${{ secrets.IONOS_REGISTRY_TOKEN_GITHUB_PUSH }}
 
 jobs:
   build-production:
@@ -24,14 +24,14 @@ jobs:
       - name: Build Docker image
         run: |
           COMMIT_HASH=${{ github.sha }}
-          docker build -f Dockerfile -t chatbot/website:$COMMIT_HASH .
-          docker tag chatbot/website:$COMMIT_HASH chatbot.cr.de-fra.ionos.com/chatbot/website:$COMMIT_HASH
+          docker build -f Dockerfile -t telli/website:$COMMIT_HASH .
+          docker tag telli/website:$COMMIT_HASH telli.cr.de-fra.ionos.com/telli/website:$COMMIT_HASH
 
       - name: Push Docker image to IONOS registry
         run: |
-          echo "${{ secrets.IONOS_DOCKER_REGISTRY_TOKEN }}" | docker login --username telli-website --password-stdin chatbot.cr.de-fra.ionos.com
+          echo "${{ secrets.IONOS_REGISTRY_TOKEN_GITHUB_PUSH }}" | docker login --username github-push --password-stdin telli.cr.de-fra.ionos.com
           COMMIT_HASH=${{ github.sha }}
-          docker push chatbot.cr.de-fra.ionos.com/chatbot/website:$COMMIT_HASH
+          docker push telli.cr.de-fra.ionos.com/telli/website:$COMMIT_HASH
 
   deploy-production:
     name: Rollout production 
@@ -55,10 +55,10 @@ jobs:
         run: |
           COMMIT_HASH=${{ github.sha }}
           echo "Updating Kubernetes deployment with image tag $COMMIT_HASH"
-          kubectl set image deployment/chatbot-website \
-            chatbot-website=chatbot.cr.de-fra.ionos.com/chatbot/website:$COMMIT_HASH \
+          kubectl set image deployment/telli-website \
+            telli-website=telli.cr.de-fra.ionos.com/telli/website:$COMMIT_HASH \
 
       - name: Wait for rollout to complete
         run: |
           echo "Waiting for rollout to complete"
-          kubectl rollout status deployment/chatbot-website
+          kubectl rollout status deployment/telli-website
