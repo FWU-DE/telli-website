@@ -30,4 +30,8 @@ Start the server (you will need environment variables for this to work properly)
 pnpm dev
 ```
 
-**Every push on master will deploy the website on `telli.schule`.**
+**Every push on master (main) will deploy the website on `telli.schule`.**
+
+## Security issues
+
+Please see [SECURITY.md](SECURITY.md) for guidance on reporting security-related issues.
