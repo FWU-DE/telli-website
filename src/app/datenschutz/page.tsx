@@ -26,25 +26,24 @@ export default function Page() {
           geltenden Datenschutzbestimmungen.
         </p>
 
-        <p>
-          <span>
-            Diese Datenschutzerklärung gilt für:{" "}
-          </span>
-          <ul className="list-disc pl-4">
-            <li>den <span className="font-bold">Webauftritt von telli</span> <Link
-              href={TELLI_WEBSITE_URL}
-              className="text-[rgba(2,165,155,1)] underline"
-            >
-              {TELLI_WEBSITE_URL}
-            </Link> und</li>
-            <li><span className="font-bold">telli Dialog</span> <Link
-              href={TELLI_CHATBOT_URL}
-              className="text-[rgba(2,165,155,1)] underline"
-            >
-              {TELLI_CHATBOT_URL}
-            </Link></li>
-          </ul>
-        </p>
+
+        <span>
+          Diese Datenschutzerklärung gilt für:{" "}
+        </span>
+        <ul className="list-disc pl-4">
+          <li>den <span className="font-bold">Webauftritt von telli</span> <Link
+            href={TELLI_WEBSITE_URL}
+            className="text-[rgba(2,165,155,1)] underline"
+          >
+            {TELLI_WEBSITE_URL}
+          </Link> und</li>
+          <li><span className="font-bold">telli Dialog</span> <Link
+            href={TELLI_CHATBOT_URL}
+            className="text-[rgba(2,165,155,1)] underline"
+          >
+            {TELLI_CHATBOT_URL}
+          </Link></li>
+        </ul>
         <p>
           Wenn Sie telli benutzen, werden verschiedene personenbezogene Daten
           erhoben. Personenbezogene Daten sind Daten, mit denen Sie persönlich
