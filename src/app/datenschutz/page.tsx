@@ -1,5 +1,6 @@
 import LegalNavbar from "@/components/legal-navbar";
-import { TELLI_WEBSITE_URL } from "@/utils/const";
+import { TELLI_WEBSITE_URL, TELLI_CHATBOT_URL } from "@/utils/const";
+import { cn } from "@/utils/tailwind/cn";
 import { h1ClassName, h2ClassName } from "@/utils/tailwind/fonts";
 import Link from "next/link";
 
@@ -10,7 +11,7 @@ export default function Page() {
       <h1 className={h1ClassName}>Datenschutzerklärung</h1>
       <em className="text-sm mb-8">Stand: 10. Februar 2025</em>
       <section className="my-4 space-y-4">
-        <h2 className="text-2xl font-semibold mb-4">1. Datenschutz</h2>
+        <h2 className={cn(h2ClassName, "mb-4")}>1. Datenschutz</h2>
         <p>
           Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten
           sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und
@@ -27,15 +28,22 @@ export default function Page() {
 
         <p>
           <span>
-            Diese Datenschutzerklärung gilt für den Webauftritt von telli:{" "}
+            Diese Datenschutzerklärung gilt für:{" "}
           </span>
-          <Link
-            href={TELLI_WEBSITE_URL}
-            className="text-[rgba(2,165,155,1)] underline"
-          >
-            {TELLI_WEBSITE_URL}
-          </Link>
-          .
+          <ul className="list-disc pl-4">
+            <li>den <span className="font-bold">Webauftritt von telli</span> <Link
+              href={TELLI_WEBSITE_URL}
+              className="text-[rgba(2,165,155,1)] underline"
+            >
+              {TELLI_WEBSITE_URL}
+            </Link> und</li>
+            <li><span className="font-bold">telli Dialog</span> <Link
+              href={TELLI_CHATBOT_URL}
+              className="text-[rgba(2,165,155,1)] underline"
+            >
+              {TELLI_CHATBOT_URL}
+            </Link></li>
+          </ul>
         </p>
         <p>
           Wenn Sie telli benutzen, werden verschiedene personenbezogene Daten
@@ -53,9 +61,12 @@ export default function Page() {
         </p>
       </section>
       <section className="my-4 space-y-4">
-        <h2 className="text-2xl font-semibold">
+        <h2 className={cn(h2ClassName, "mb-4")}>
           2. Hinweis zur verantwortlichen Stelle
         </h2>
+        <h3 className="text-xl font-semibold">
+          Webauftritt von telli
+        </h3>
         <p>
           FWU – Institut für Film und Bild in Wissenschaft und Unterricht
           gemeinnützige GmbH
@@ -88,11 +99,18 @@ export default function Page() {
             https://www.lda.bayern.de
           </Link>
         </div>
+        <h3 className="text-xl font-semibold">
+          telli Dialog
+        </h3>
+        <p>Verantwortlicher ist hier Ihre Schule bzw. der jeweilige Schulträger. Bei der Nutzung von telli Dialog von telli. Das FWU ist Auftragsdatenverarbeiter.</p>
       </section>
       <section className="my-4 space-y-4">
-        <h2 className="text-2xl font-semibold mb-4">
+        <h2 className={cn(h2ClassName, "mb-4")}>
           3. Welche Quellen und Daten nutzen wir?
         </h2>
+        <h3 className="text-xl font-semibold">
+          Webauftritt
+        </h3>
         <p>
           Wir erheben und verarbeiten – soweit zur Erfüllung unserer Aufgaben
           erforderlich – personenbezogene Daten, die wir von der betroffenen
@@ -109,12 +127,19 @@ export default function Page() {
           Relevante personenbezogene Daten sind ausschließlich folgende
           Personalien: Name, Vorname, E-Mailadresse
         </p>
+        <h3 className="text-xl font-semibold">
+          telli Dialog
+        </h3>
+        <p>telli wird an VIDIS angebunden, dem „Vermittlungsdienst für das digitale Identitätsmanagement in Schulen“, einem Single-Sign-On für Schulen. VIDIS stellt die bestehenden schulischen Zugangsmöglichkeiten der Nutzerinnen und Nutzer zur Verfügung. VIDIS übernittelt an telli folgenden personenbezogene Daten: Identifikator, Rolle (Unterscheidung Lehrkraft/Schüler/-in), Schulidentifikator, Gerätedaten, IP-Adresse, Log-Daten.</p>
       </section>
       <section className="my-4 space-y-4">
-        <h2 className="text-2xl font-semibold">
+        <h2 className={cn(h2ClassName, "mb-4")}>
           4. Wofür verarbeiten wir Ihre Daten (Zweck der Verarbeitung) und auf
           welcher Rechtsgrundlage?
         </h2>
+        <h3 className="text-xl font-semibold">
+          Webauftritt
+        </h3>
         <p>a) Aufgrund Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO)</p>
         <p>
           Soweit Sie uns eine Einwilligung zur Verarbeitung (Art. 4 Nr. 2 DSGVO)
@@ -158,74 +183,19 @@ export default function Page() {
           Servern („Denial of service“-Angriffe) und Schädigungen von Computer-
           und elektronischen Kommunikationssystemen abzuwehren.
         </p>
-        <p>
-          Wir erheben und verarbeiten – soweit zur Erfüllung unserer Aufgaben
-          erforderlich – personenbezogene Daten, die wir von der betroffenen
-          natürlichen Person zulässigerweise (z.B. aufgrund einer von Ihnen
-          erteilten Einwilligung) erhalten haben.
-        </p>
-        <p>
-          Wir verarbeiten zudem personenbezogene Daten, die wir im Rahmen einer
-          Geschäftsbeziehung von der betroffenen Person, die Vertragspartei ist,
-          erhalten und die uns die betroffene Person über unser Kontaktformular
-          oder per E-Mail übermittelt hat.
-        </p>
-        <p>
-          Relevante personenbezogene Daten sind ausschließlich folgende
-          Personalien: Name, Vorname, E-Mailadresse
-        </p>
-        <p>
-          4. Wofür verarbeiten wir Ihre Daten (Zweck der Verarbeitung) und auf
-          welcher Rechtsgrundlage?
-        </p>
-        <p>1. a) Aufgrund Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO)</p>
-        <p>
-          Soweit Sie uns eine Einwilligung zur Verarbeitung (Art. 4 Nr. 2 DSGVO)
-          von personenbezogenen Daten für bestimmte Zwecke erteilt haben, ist
-          die Rechtmäßigkeit dieser Verarbeitung auf Basis Ihrer Einwilligung
-          gegeben.
-        </p>
-        <p>
-          1. b) Zur Erfüllung von vertraglichen Pflichten (Art. 6 Abs. 1 lit. b
-          DSGVO)
-        </p>
-        <p>
-          Die Verarbeitung (Art. 4 Nr. 2 DSGVO) personenbezogener Daten kann
-          auch zur Begründung, Durchführung sowie Beendigung eines Vertrages
-          erfolgen. Im Falle eines Vertragsabschlusses ist die Verarbeitung also
-          im Wesentlichen für die Erfüllung des Vertrags nötig, dessen
-          Vertragspartei die betroffene Person ist, oder zur Durchführung
-          vorvertraglicher Maßnahmen erforderlich, die auf Anfrage der
-          betroffenen Person erfolgen.
-        </p>
-        <p>
-          1. c) Aufgrund unseres überwiegenden berechtigten Interesses (Art. 6
-          Abs. 1 lit f DSGVO)
-        </p>
-        <p>
-          Die Verarbeitung personenbezogener Daten kann auch in unserem
-          überwiegenden berechtigten Interesse erfolgen, wenn dies für die
-          Gewährleistung der Netz- und Informationssicherheit unbedingt
-          notwendig und verhältnismäßig ist, d.h. soweit dadurch die Fähigkeit
-          eines Netzes oder Informationssystems gewährleistet wird, mit einem
-          vorgegebenen Grad der Zuverlässigkeit Störungen oder widerrechtliche
-          oder mutwillige Eingriffe abzuwehren, die die Verfügbarkeit,
-          Authentizität, Vollständigkeit und Vertraulichkeit von gespeicherten
-          oder übermittelten personenbezogenen Daten sowie die Sicherheit damit
-          zusammenhängender Dienste, die über diese Netze oder
-          Informationssysteme angeboten werden bzw. zugänglich sind,
-          beeinträchtigen. Ein solches berechtigtes Interesse könnte
-          beispielsweise darin bestehen, den Zugang Unbefugter zu elektronischen
-          Kommunikationsnetzen und die Verbreitung schädlicher Programmcodes zu
-          verhindern sowie Angriffe in Form der gezielten Überlastung von
-          Servern („Denial of service“-Angriffe) und Schädigungen von Computer-
-          und elektronischen Kommunikationssystemen abzuwehren.
-        </p>
+        <h3 className="text-xl font-semibold">
+          telli Dialog
+        </h3>
+        <p>a) Die Verarbeitung ist für die Wahrnehmung einer Aufgabe erforderlich, die im öffentlichen Interesse liegt oder in Ausübung öffentlicher Gewalt erfolgt, die dem Verantwortlichen übertragen wurde (Art. 6 Abs. 1 lit. c DSGVO)</p>
+        <p>b) Die Verarbeitung von personenbezogenen Daten erfolgt im Rahmen von telli Dialog zur Erfüllung des staatlichen Bildungs- und Erziehungsauftrags. Die Rechtsgrundlage für die Verarbeitung von Daten durch die Schule mittels telli ergibt sich aus Art. 6 Abs. 1 lit. e DSGVO in Verbindung mit dem Erziehungs- und Bildungsauftrag der Landesschulgesetze.</p>
       </section>
       <section className="my-4 space-y-4">
-        <h2 className="text-2xl font-semibold">
+        <h2 className={cn(h2ClassName, "mb-4")}>
           5. Gibt es für Sie eine Pflicht zur Bereitstellung von Daten?
         </h2>
+        <h3 className="text-xl font-semibold">
+          Webauftritt
+        </h3>
         <p className="my-4">
           Im Rahmen einer Geschäftsbeziehung haben Sie diejenigen
           personenbezogenen Daten bereitzustellen, die für die Aufnahme und
@@ -236,11 +206,18 @@ export default function Page() {
           bestehender Vertrag nicht mehr durchgeführt werden können und ggf.
           beendet werden müssen.
         </p>
+        <h3 className="text-xl font-semibold">
+          telli Dialog
+        </h3>
+        <p>Im Rahmen des Schulunterrichts haben die Nutzer von telli Dialog diejenigen personenbezogenen Daten bereitzustellen, die für die Erfüllung der Erziehungs- und Bildungsauftrags erforderlich sind.</p>
       </section>
       <section className="my-4 space-y-4">
-        <h2 className="text-2xl font-semibold my-4">
+        <h2 className={cn(h2ClassName, "mb-4")}>
           6. Wer bekommt Ihre Daten?
         </h2>
+        <h3 className="text-xl font-semibold">
+          Webauftritt von telli und telli Dialog
+        </h3>
         <p className="my-4">
           Ihre personenbezogenen Daten werden natürlichen oder juristischen
           Personen, Behörden, Einrichtungen oder anderen Stellen offengelegt,
@@ -254,29 +231,28 @@ export default function Page() {
         <p>folgende von uns eingesetzte Auftragsverarbeiter (Art. 28 DSGVO):</p>
 
         <ul className="list-disc ml-6">
-          <li>Mitarbeiter des FWU</li>
-        </ul>
-        <p>folgende von uns eingesetzte Auftragsverarbeiter (Art. 28 DSGVO):</p>
-
-        <ul className="list-disc ml-6">
-          <li>netz-haut GmbH, Friedrich-Bergius-Ring 12, 97076 Würzburg</li>
           <li>
-            DeutschlandGPT GmbH, Gabriele-Münter-Straße 3, 82110 Germering
+            DeutschlandGPT GmbH, Gabriele-Münter-Straße 3, 82110 Germering, Germany
+          </li>
+          <li>
+            IONOS SE, Elgendorfer Str. 57, 56410 Montabaur, Germany
+          </li>
+          <li>
+            Akenes SA trading („Exoscale“), Boulevard de Grancy 19A, 1006 Lausanne, Switzerland
+          </li>
+          <li>
+            Microsoft Ireland Operations Ltd, One Microsoft Place, South County Business Park, Leopardstown, Dublin 18, Ireland
           </li>
         </ul>
-        <p>
-          Als technischer Dienstleister des FWU nimmt die netz-haut GmbH Ihre
-          Daten und Erklärungen entgegen, diese Daten werden auf Servern der
-          netz-haut GmbH gespeichert. Eine entsprechende Vereinbarung zur
-          Verarbeitung personenbezogener Daten mit dem der netz-haut GmbH zum
-          Schutz sämtlicher Daten liegt vor.
-        </p>
         <p>
           Als Dienstleister von telli entwickelt die DeutschlandGPT GmbH telli,
           und kommt dadurch mit Ihren Daten und Erklärungen in Berührung. Eine
           entsprechende Vereinbarung zur Verarbeitung personenbezogener Daten
           mit der DeutschlandGPT GmbH zum Schutz sämtlicher Daten liegt vor.
         </p>
+        <p>Als technischer Dienstleister des FWU nimmt IONOS SE, Anbieter von Cloud- Infrastruktur, Cloud-Services und Hosting-Dienstleistungen, Ihre Daten und Erklärungen entgegen, diese Daten werden auf Servern der IONOS SE gespeichert. Eine entsprechende Vereinbarung zur Verarbeitung personenbezogener Daten mit IONOS SE zum Schutz sämtlicher Daten liegt vor.</p>
+        <p>Als technischer Dienstleister des FWU nimmt die Akenes SA trading as Exoscale, Anbieter von Cloud- Infrastruktur, Cloud-Services und Hosting-Dienstleistungen, Ihre Daten und Erklärungen entgegen, diese Daten werden auf Servern der Akenes SA trading as Exoscale gespeichert. Eine entsprechende Vereinbarung zur Verarbeitung personenbezogener Daten mit Exoscale zum Schutz sämtlicher Daten liegt vor.</p>
+        <p>Als technischer Dienstleister von telli nimmt die Microsoft Ireland Operations Ltd, Anbieter von Cloud- Infrastruktur, Cloud-Services und Hosting-Dienstleistungen, Ihre Daten und Erklärungen entgegen, diese Daten werden auf Servern der Microsoft Ireland Operations Ltd, gespeichert. Eine entsprechende Vereinbarung zur Verarbeitung personenbezogener Daten zum Schutz sämtlicher Daten liegt vor.</p>
         <p>
           An weitere Datenempfänger außerhalb von telli geben wir Daten zu
           anderen als den in diesen Hinweisen genannten Zwecken nur weiter,
@@ -287,20 +263,23 @@ export default function Page() {
       </section>
 
       <section className="my-4 space-y-4">
-        <h2 className="text-2xl font-semibold my-4">
+        <h2 className={cn(h2ClassName, "mb-4")}>
           7. Werden Daten in ein Drittland (Staaten außerhalb des Europäischen
           Wirtschaftsraums) oder an eine internationale Organisation
           übermittelt?
         </h2>
+        <h3 className="text-xl font-semibold">
+          Webauftritt von telli und telli Dialog
+        </h3>
         <p>
           Eine Übermittlung in ein Drittland (Staaten außerhalb des Europäischen
           Wirtschaftsraums) oder an eine internationale Organisation gem.
-          Kapitel 5 DSGVO erfolgt ohne Ihre ausdrückliche Zustimmung nicht.
+          Kapitel 5 DSGVO erfolgt ohne Ihre ausdrückliche Zustimmung nicht. Die eingesetzten LLM werden lokal gehostet und betrieben.
         </p>
       </section>
 
       <section className="my-4 space-y-4">
-        <h2 className="text-2xl font-semibold my-4">
+        <h2 className={cn(h2ClassName, "mb-4")}>
           8. Wie lange werden Ihre Daten gespeichert?
         </h2>
         <p>
@@ -322,7 +301,7 @@ export default function Page() {
       </section>
 
       <section className="my-4 space-y-4">
-        <h2 className="text-2xl font-semibold my-4">
+        <h2 className={cn(h2ClassName, "mb-4")}>
           9. Widerruf Ihrer Einwilligung zur Datenverarbeitung
         </h2>
         <p>
@@ -337,7 +316,7 @@ export default function Page() {
       </section>
 
       <section className="my-4 space-y-4">
-        <h2 className="text-2xl font-semibold my-4">
+        <h2 className={cn(h2ClassName, "mb-4")}>
           10. Welche Datenschutzrechte haben Sie?
         </h2>
         <p>
@@ -358,7 +337,7 @@ export default function Page() {
       </section>
 
       <section className="my-4 space-y-4">
-        <h2 className="text-2xl font-semibold my-4">
+        <h2 className={cn(h2ClassName, "mb-4")}>
           11. Inwieweit gibt es eine automatisierte Entscheidungsfindung
           (einschließlich Profiling)?
         </h2>
@@ -368,14 +347,142 @@ export default function Page() {
           dem Ziel, bestimmte Aspekte zu bewerten (Profiling).
         </p>
       </section>
-      <section className="my-4 space-y-4 mt-12">
+      <section className="my-4 space-y-4">
+        <h2 className={cn(h2ClassName, "mb-4")}>
+          12. Cookies
+        </h2>
+        <h3 className="text-xl font-semibold">
+          telli Dialog
+        </h3>
+        <p>Die nachfolgenden Hinweise betreffen die einzelnen Datenverarbeitungsvorgänge bei der Nutzung der von telli Dialog unter Verwendung von VIDIS.</p>
+        <p>Der technische Dienstleister für die Dienste von telli erhebt und speichert automatisch Informationen in sogenannten Server-Log-Dateien, die der Browser automatisch an telli übermittelt. Dies sind:</p>
+        <ul className="list-disc ml-6">
+          <li>
+            Browsertyp und Browserversion
+          </li>
+          <li>
+            verwendetes Betriebssystem
+          </li>
+          <li>
+            Referrer URL
+          </li>
+          <li>
+            Hostname des zugreifenden Rechners
+          </li>
+          <li>
+            Uhrzeit der Serveranfrage
+          </li>
+          <li>IP-Adresse, anonymisier</li>
+        </ul>
+        <p>Aus Gründen der technischen Sicherheit, insbesondere zur Abwehr von Angriffsversuchen, werden diese Daten vom FWU gespeichert. Nach spätestens sieben Tagen werden die Daten gelöscht, so dass es nicht mehr möglich ist, einen Bezug auf einzelne Nutzende herzustellen; ein Abgleich mit anderen Datenbeständen oder eine Weitergabe an Dritte, auch in Auszügen, findet nicht statt. Diese Datenverarbeitung dient der nach Art. 6 Abs. 1 lit e DS-GVO bestimmten Pflicht, jederzeit nachvollziehen zu können, wer wann Änderungen an den Daten vorgenommen hat.</p>
+        <p>Die Leistungen von telli Dialog werden mit dem Single-Sign-On des FWU, VIDIS, erbracht (www.vidis.schule). Folgende technisch-notwendigen Cookies werden von telli Dialog gespeichert und übermittelt:</p>
+        <table className="w-full table-auto">
+          <thead className="bg-gray-100">
+            <tr>
+              <th className="px-4 py-2">Name</th>
+              <th className="px-4 py-2">Anbieter</th>
+              <th className="px-4 py-2">Zweck</th>
+              <th className="px-4 py-2">Ablauf</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="px-4 py-2 border-b border-gray-200">Host-authjs.csrf-token</td>
+              <td className="px-4 py-2 border-b border-gray-200"><a href="https://chat.telli.schule" className="text-blue-600 hover:text-blue-800">chat.telli.schule</a></td>
+              <td className="px-4 py-2 border-b border-gray-200">Vermeidung von Cross-Site-Request-Forgery Angriffen</td>
+              <td className="px-4 py-2 border-b border-gray-200">Session</td>
+            </tr>
+            <tr>
+              <td className="px-4 py-2 border-b border-gray-200">Secure-authjs.callback-url</td>
+              <td className="px-4 py-2 border-b border-gray-200"><a href="https://chat.telli.schule" className="text-blue-600 hover:text-blue-800">chat.telli.schule</a></td>
+              <td className="px-4 py-2 border-b border-gray-200">Authentifizierung mit VIDIS</td>
+              <td className="px-4 py-2 border-b border-gray-200">Session</td>
+            </tr>
+            <tr>
+              <td className="px-4 py-2 border-b border-gray-200">Secure-authjs.session-token</td>
+              <td className="px-4 py-2 border-b border-gray-200"><a href="https://chat.telli.schule" className="text-blue-600 hover:text-blue-800">chat.telli.schule</a></td>
+              <td className="px-4 py-2 border-b border-gray-200">Authentifizierung mit VIDIS</td>
+              <td className="px-4 py-2 border-b border-gray-200">8 Stunden</td>
+            </tr>
+            <tr>
+              <td className="px-4 py-2 border-b border-gray-200">last-used-model</td>
+              <td className="px-4 py-2 border-b border-gray-200"><a href="https://chat.telli.schule" className="text-blue-600 hover:text-blue-800">chat.telli.schule</a></td>
+              <td className="px-4 py-2 border-b border-gray-200">Verbesserte UX bei Chatwechsel</td>
+              <td className="px-4 py-2 border-b border-gray-200">Session</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Folgende technisch-notwendigen Cookies werden von VIDIS gespeichert und übermittelt:</p>
+        <table className="w-full table-auto">
+          <thead className="bg-gray-100">
+            <tr>
+              <th className="px-4 py-2">Name</th>
+              <th className="px-4 py-2">Anbieter</th>
+              <th className="px-4 py-2">Zweck</th>
+              <th className="px-4 py-2">Ablauf</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="px-4 py-2 border-b border-gray-200">AUTH_SESSION_ID_LEGACY</td>
+              <td className="px-4 py-2 border-b border-gray-200">Keycloak</td>
+              <td className="px-4 py-2 border-b border-gray-200">Dieses Cookie ist für die Login-Funktion erforderlich</td>
+              <td className="px-4 py-2 border-b border-gray-200">Session</td>
+            </tr>
+            <tr>
+              <td className="px-4 py-2 border-b border-gray-200">AUTH_SESSSION_ID</td>
+              <td className="px-4 py-2 border-b border-gray-200">Keycloak</td>
+              <td className="px-4 py-2 border-b border-gray-200">Dieses Cookie ist für die Login-Funktion erforderlich</td>
+              <td className="px-4 py-2 border-b border-gray-200">Session</td>
+            </tr>
+            <tr>
+              <td className="px-4 py-2 border-b border-gray-200">AKEYCLOAK_IDENTITY_LEGACY</td>
+              <td className="px-4 py-2 border-b border-gray-200">Keycloak</td>
+              <td className="px-4 py-2 border-b border-gray-200">Die ID der aktuellen Nutzenden</td>
+              <td className="px-4 py-2 border-b border-gray-200">Session</td>
+            </tr>
+            <tr>
+              <td className="px-4 py-2 border-b border-gray-200">KEYCLOAK_IDENTITY</td>
+              <td className="px-4 py-2 border-b border-gray-200">Keycloak</td>
+              <td className="px-4 py-2 border-b border-gray-200">Die ID der aktuellen Nutzenden</td>
+              <td className="px-4 py-2 border-b border-gray-200">Session</td>
+            </tr>
+            <tr>
+              <td className="px-4 py-2 border-b border-gray-200">KEYCLOAK_SESSION_LEGACY</td>
+              <td className="px-4 py-2 border-b border-gray-200">Keycloak</td>
+              <td className="px-4 py-2 border-b border-gray-200">Die ID der aktuellen Browsersitzung</td>
+              <td className="px-4 py-2 border-b border-gray-200">Session</td>
+            </tr>
+            <tr>
+              <td className="px-4 py-2 border-b border-gray-200">KEYCLOAK_SESSION</td>
+              <td className="px-4 py-2 border-b border-gray-200">Keycloak</td>
+              <td className="px-4 py-2 border-b border-gray-200">Die ID der aktuellen Browsersitzung</td>
+              <td className="px-4 py-2 border-b border-gray-200">Session</td>
+            </tr>
+            <tr>
+              <td className="px-4 py-2 border-b border-gray-200">XSRF-TOKEN</td>
+              <td className="px-4 py-2 border-b border-gray-200">Keycloak</td>
+              <td className="px-4 py-2 border-b border-gray-200">Gewährleistet die Sicherheit der Besucherinnen und Besucher beim Surfen, indem es Cross-Site Request Forgery verhindert</td>
+              <td className="px-4 py-2 border-b border-gray-200">Session</td>
+            </tr>
+            <tr>
+              <td className="px-4 py-2 border-b border-gray-200">KC_RESTART</td>
+              <td className="px-4 py-2 border-b border-gray-200">Keycloak</td>
+              <td className="px-4 py-2 border-b border-gray-200">Identifiziert eingeloggte Benutzende</td>
+              <td className="px-4 py-2 border-b border-gray-200">Session</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 className="text-xl font-semibold">
+          Webauftritt von telli
+        </h3>
         <p>
           Die nachfolgenden Hinweise betreffen die einzelnen
           Datenverarbeitungsvorgänge bei der Nutzung der von telli betriebenen
           Webseiten.
         </p>
 
-        <h2 className="text-2xl font-semibold my-4">1. Server-Log-Dateien</h2>
+        <h4 className="my-4">1. Server-Log-Dateien</h4>
         <p>
           Der technische Dienstleister der Seiten erhebt und speichert
           automatisch Informationen in so genannten Server-Log-Dateien, die Ihr
@@ -401,20 +508,10 @@ export default function Page() {
           Optimierung unserer Webseiten – hierzu müssen die Server-Log-Files
           erfasst werden.
         </p>
-
-        <h2 className="text-2xl font-semibold my-4">2. Cookies</h2>
-        <p>
-          Wir verwenden notwendige Cookies, die die Kernfunktionen der Webseite
-          sicherstellen und die daher nicht ausgeschaltet werden können.
-        </p>
-        <p>
-          Daneben verwenden von uns eingebundene Dienste gegebenenfalls Cookies,
-          die erst auf der Grundlage Ihrer aktiven Zustimmung in unserem Cookie
-          Consent Manager aktiviert werden.
-        </p>
-
-        <h2 className="text-2xl font-semibold my-4">
-          3. Anfrage per E-Mail, Telefon oder Telefax
+      </section>
+      <section className="my-4 space-y-4">
+        <h2 className={cn(h2ClassName, "mb-4")}>
+          13. Anfrage per E-Mail, Telefon oder Telefax
         </h2>
         <p>
           Wenn Sie uns per E-Mail, Telefon oder Telefax kontaktieren, wird Ihre
@@ -437,74 +534,6 @@ export default function Page() {
           entfällt (z. B. nach abgeschlossener Bearbeitung Ihres Anliegens).
           Zwingende gesetzliche Bestimmungen – insbesondere gesetzliche
           Aufbewahrungsfristen – bleiben unberührt.
-        </p>
-      </section>
-      <section className="my-4 mt-12 space-y-4">
-        <h2 className={h2ClassName}>Urheberrecht</h2>
-        <p>
-          © FWU Institut für Film und Bild in Wissenschaft und Unterricht
-          gemeinnützige GmbH– alle Rechte vorbehalten.
-        </p>
-        <p>
-          Falls nicht anders angegeben, unterliegen alle Seiten des Webangebots
-          von telli dem Urheberrecht (Copyright). Dies gilt insbesondere für
-          Texte, Bilder, Grafiken, Ton-, Video- oder Animationsdateien
-          einschließlich deren Anordnung auf den Webseiten. Eine
-          Vervielfältigung oder Verwendung solcher Seiten (oder Teilen davon) in
-          anderen elektronischen oder gedruckten Publikationen und deren
-          Veröffentlichung (auch im Internet) ist nur nach vorheriger
-          Genehmigung gestattet. Die Genehmigung zur Publikation der Webseiten
-          kann telli erteilen. Weiterhin können Bilder, Grafiken, Text- oder
-          sonstige Dateien ganz oder teilweise dem Urheberrecht Dritter
-          unterliegen.
-        </p>
-        <p>
-          Alle innerhalb des Internetangebotes genannten und ggf. durch Dritte
-          geschützten Marken- und Warenzeichen unterliegen uneingeschränkt den
-          Bestimmungen des jeweils gültigen Kennzeichenrechts und den
-          Besitzrechten der jeweiligen eingetragenen Eigentümer. Allein aufgrund
-          der bloßen Nennung in unserem Internetangebot ist nicht der Schluss zu
-          ziehen, dass Markenzeichen nicht durch Rechte Dritter geschützt sind.
-        </p>
-      </section>
-      <section className="my-4 mt-12 space-y-4">
-        <h2 className={h2ClassName}>Haftungsausschluss</h2>
-        <p>
-          telli hat alle in seinem Bereich bereitgestellten Informationen nach
-          bestem Wissen und Gewissen erarbeitet und geprüft. Es wird jedoch
-          keine Gewähr für die Aktualität, Richtigkeit, Vollständigkeit oder
-          Qualität und jederzeitige Verfügbarkeit der bereit gestellten
-          Informationen übernommen. Unbeschadet der Regelungen des § 675 Absatz
-          2 BGB gilt für das bereitgestellte Informationsangebot folgende
-          Haftungsbeschränkung: telli und seine Bediensteten haften nicht für
-          Schäden, die durch die Nutzung oder Nichtnutzung der im
-          Internetangebot von telli angebotenen Informationen entstehen. Für
-          etwaige Schäden, die beim Aufrufen oder Herunterladen von Daten durch
-          Computerviren oder der Installation oder Nutzung von Software
-          verursacht werden, wird nicht gehaftet.
-        </p>
-        <p>
-          Namentlich gekennzeichnete Internetseiten geben die Auffassungen und
-          Erkenntnisse der abfassenden Personen wieder.
-        </p>
-        <p>
-          telli behält es sich ausdrücklich vor, einzelne Webseiten oder das
-          gesamte Angebot ohne gesonderte Ankündigung zu verändern, zu ergänzen,
-          zu löschen oder die Veröffentlichung zeitweise oder endgültig
-          einzustellen.
-        </p>
-        <p>
-          Wir betonen ausdrücklich, dass wir keinerlei Einfluss auf die aktuelle
-          sowie zukünftige Gestaltung und die Inhalte externer Internetseiten
-          haben. Deshalb distanzieren wir uns hiermit ausdrücklich von den
-          Inhalten aller externen Internetseiten, auf die wir auf unserer
-          Website verweisen. Die Inhalte externer Internetseiten machen wir uns
-          nicht zu Eigen. Diese Erklärung gilt für alle Seiten dieser Homepage
-          und der dort angebrachten Links. Für illegale, fehlerhafte oder
-          unvollständige Informationen sowie insbesondere für Schäden durch die
-          Nutzung der gelinkten Seiten haftet ausschließlich der Anbieter der
-          Seite, auf welche verwiesen wird, nicht derjenige, der über Links
-          lediglich auf die jeweilige Veröffentlichung verweist.
         </p>
       </section>
     </div>
