@@ -13,7 +13,7 @@ export default function Impressum() {
           <div>
             <p className="font-bold">FWU Institut für Film und Bild</p>
             <p>in Wissenschaft und Unterricht gemeinnützige GmbH</p>
-            <p>Bayerfilmplatz 3</p>
+            <p>Bavariafilmplatz 3</p>
             <p>82031 Grünwald</p>
           </div>
 
@@ -63,7 +63,7 @@ export default function Impressum() {
             <p className="font-bold">Vertretungsberechtigte</p>
             <p>
               <span className="font-bold">Geschäftsführer:</span> Andreas
-              Koschinský (Direktor), Rüdiger Nill
+              Koschinsky (Direktor), Rüdiger Nill
             </p>
             <p>
               <span className="font-bold">Sitzland</span> ist die Bundesrepublik
