@@ -77,9 +77,10 @@ export default function Page() {
         <p>+49 (0) 89 6497 – 1</p>
         <p>info@fwu.de</p>
         <p>Datenschutzbeauftragter:</p>
-        <p>Ulrich Kasberger</p>
-        <p>Bavariafilmplatz 3</p>
-        <p>82031 Grünwald, Deutschland</p>
+        <p>Michael Plankemann</p>
+        <p>c/o activeMind AG</p>
+        <p>Potsdamer Straße 3</p>
+        <p>80802 München, Deutschland</p>
         <p>
           Weiterhin besteht ein Beschwerderecht bei der zuständigen
           Aufsichtsbehörde: Bayerisches Landesamt für Datenschutzaufsicht
