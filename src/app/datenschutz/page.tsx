@@ -235,6 +235,9 @@ export default function Page() {
             DeutschlandGPT GmbH, Gabriele-Münter-Straße 3, 82110 Germering, Germany
           </li>
           <li>
+            Xitaso GmbH IT & Software Solutions, Austraße 35, 86153 Augsburg, Germany
+          </li>
+          <li>
             IONOS SE, Elgendorfer Str. 57, 56410 Montabaur, Germany
           </li>
           <li>
@@ -249,6 +252,12 @@ export default function Page() {
           und kommt dadurch mit Ihren Daten und Erklärungen in Berührung. Eine
           entsprechende Vereinbarung zur Verarbeitung personenbezogener Daten
           mit der DeutschlandGPT GmbH zum Schutz sämtlicher Daten liegt vor.
+        </p>
+        <p>
+          Als Dienstleister von telli entwickelt die Xitaso GmbH IT & Software Solutions telli,
+          und kommt dadurch mit Ihren Daten und Erklärungen in Berührung. Eine
+          entsprechende Vereinbarung zur Verarbeitung personenbezogener Daten
+          mit der Xitaso GmbH zum Schutz sämtlicher Daten liegt vor.
         </p>
         <p>Als technischer Dienstleister des FWU nimmt IONOS SE, Anbieter von Cloud- Infrastruktur, Cloud-Services und Hosting-Dienstleistungen, Ihre Daten und Erklärungen entgegen, diese Daten werden auf Servern der IONOS SE gespeichert. Eine entsprechende Vereinbarung zur Verarbeitung personenbezogener Daten mit IONOS SE zum Schutz sämtlicher Daten liegt vor.</p>
         <p>Als technischer Dienstleister des FWU nimmt die Akenes SA trading as Exoscale, Anbieter von Cloud- Infrastruktur, Cloud-Services und Hosting-Dienstleistungen, Ihre Daten und Erklärungen entgegen, diese Daten werden auf Servern der Akenes SA trading as Exoscale gespeichert. Eine entsprechende Vereinbarung zur Verarbeitung personenbezogener Daten mit Exoscale zum Schutz sämtlicher Daten liegt vor.</p>
