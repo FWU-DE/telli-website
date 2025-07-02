@@ -59,7 +59,7 @@ export default function App() {
             </p>
           </div>
           <div className="flex flex-col items-center justify-center h-full w-full">
-            <img src="/lg.png" alt="Telli Chat Preview" />
+            <img src="/lg.png" alt="telli Chat Preview" />
           </div>
         </section>
         <div
@@ -178,7 +178,7 @@ export default function App() {
                 className="w-fit"
                 width={500}
                 height={250}
-                alt="Telli app on a laptop"
+                alt="telli app on a laptop"
               />
             </div>
           </div>
