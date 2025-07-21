@@ -1,4 +1,4 @@
-name: Deploy telli website 
+name: Deploy telli website
 
 on:
   push:
@@ -9,6 +9,7 @@ on:
 
 env:
   IONOS_REGISTRY_TOKEN_GITHUB_PUSH: ${{ secrets.IONOS_REGISTRY_TOKEN_GITHUB_PUSH }}
+  KUBERNETES_NAMESPACE: telli-website-prod
 
 jobs:
   build-production:
@@ -34,8 +35,8 @@ jobs:
           docker push telli.cr.de-fra.ionos.com/telli/website:$COMMIT_HASH
 
   deploy-production:
-    name: Rollout production 
-    environment: Production 
+    name: Rollout production
+    environment: Production
     timeout-minutes: 5
     needs: build-production
     runs-on: ubuntu-latest
@@ -49,16 +50,16 @@ jobs:
         with:
           method: kubeconfig
           kubeconfig: ${{ secrets.KUBECONFIG_FILE }}
-          context: ''
+          context: ""
 
       - name: Update Kubernetes deployment
         run: |
           COMMIT_HASH=${{ github.sha }}
           echo "Updating Kubernetes deployment with image tag $COMMIT_HASH"
           kubectl set image deployment/telli-website \
-            telli-website=telli.cr.de-fra.ionos.com/telli/website:$COMMIT_HASH \
+            telli-website=telli.cr.de-fra.ionos.com/telli/website:$COMMIT_HASH -n $KUBERNETES_NAMESPACE \
 
       - name: Wait for rollout to complete
         run: |
           echo "Waiting for rollout to complete"
-          kubectl rollout status deployment/telli-website
+          kubectl rollout status deployment/telli-website -n $KUBERNETES_NAMESPACE
