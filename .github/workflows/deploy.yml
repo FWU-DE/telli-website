@@ -57,7 +57,7 @@ jobs:
           COMMIT_HASH=${{ github.sha }}
           echo "Updating Kubernetes deployment with image tag $COMMIT_HASH"
           kubectl set image deployment/telli-website-prod \
-            telli-website=telli.cr.de-fra.ionos.com/telli/website:$COMMIT_HASH -n $KUBERNETES_NAMESPACE \
+            telli-website-prod=telli.cr.de-fra.ionos.com/telli/website:$COMMIT_HASH -n $KUBERNETES_NAMESPACE \
 
       - name: Wait for rollout to complete
         run: |
